@@ -1,0 +1,3 @@
+rootProject.name = 'WEGOD'
+include 'AuthService'
+
