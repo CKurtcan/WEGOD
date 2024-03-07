@@ -5,10 +5,10 @@ import com.CK.dto.request.RegisterRequestDto;
 import com.CK.entity.Auth;
 import com.CK.exception.AuthManagerException;
 import com.CK.exception.ErrorType;
+import com.CK.mapper.AuthMapper;
 import com.CK.repository.AuthRepository;
 import com.CK.utility.enums.Nationality;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 public class AuthService {
 
     private final AuthRepository authRepository;
+    private final AuthMapper authMapper;
     public Boolean register(RegisterRequestDto dto) {
         if (dto.getNationality().equals(Nationality.TURKISH) && dto.getIdNum().length() != 11) {
             throw new AuthManagerException(ErrorType.BAD_REQUEST);
@@ -28,13 +29,7 @@ public class AuthService {
         if (!dto.getPassword().equals(dto.getPasswordConfirm())) {
             throw new AuthManagerException(ErrorType.PASSWORDS_DO_NOT_MATCH);
         }
-        Auth auth = Auth.builder()
-                .nationality(dto.getNationality())
-                .idNum(dto.getIdNum())
-                .email(dto.getEmail())
-                .username(dto.getUsername())
-                .password(dto.getPassword())
-                .build(); // build işlemi mapplemeye dönüştürülecek
+        Auth auth = authMapper.fromReqisterRequestDtoToAuth(dto);
         authRepository.save(auth);
         return true;
     }

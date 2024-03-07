@@ -1,0 +1,13 @@
+server:
+  port: 6061
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/WEGODUserDB
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true

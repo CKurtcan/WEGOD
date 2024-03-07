@@ -1,0 +1,13 @@
+server:
+  port: 6062
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/WEGODVehicleDB
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true

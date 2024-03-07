@@ -1,3 +1,5 @@
 rootProject.name = 'WEGOD'
 include 'AuthService'
+include 'UserService'
+include 'VehicleService'
 

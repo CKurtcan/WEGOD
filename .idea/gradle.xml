@@ -9,6 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AuthService" />
+            <option value="$PROJECT_DIR$/UserService" />
+            <option value="$PROJECT_DIR$/VehicleService" />
           </set>
         </option>
       </GradleProjectSettings>
