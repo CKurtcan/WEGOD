@@ -12,4 +12,6 @@ public class RestApiUrls {
     public static final String VEHICLE = ROOT + "/vehicle";
 
     public static final String ADD_VEHICLE = "/createVehicle";
+    public static final String FIND_NEARBY_VEHICLE = "/findNearbyVehicle";
+    public static final String RENT_CAR = "/rentCar";
 }

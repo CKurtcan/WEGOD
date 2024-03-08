@@ -1,24 +1,17 @@
-package com.CK.entity;
+package com.CK.dto.response;
 
-import com.CK.utility.enums.EVehicleStatus;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
 @Data
-@SuperBuilder
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "Vehicle")
-public class Vehicle extends BaseEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class VehicleResponseDto {
 
     private String brand;
     private String model;
@@ -31,7 +24,4 @@ public class Vehicle extends BaseEntity {
     private String location;
     private String about;
     private String image;
-
-    @Builder.Default
-    private EVehicleStatus status = EVehicleStatus.AVAILABLE;
 }

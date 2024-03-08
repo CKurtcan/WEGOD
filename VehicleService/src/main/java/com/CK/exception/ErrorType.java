@@ -10,11 +10,8 @@ public enum ErrorType {
 
     INTERNAL_SERVER_ERROR(5100, "Sunucu Hatasi",HttpStatus.INTERNAL_SERVER_ERROR),
     BAD_REQUEST (4100,"Parametre hatasi", HttpStatus.BAD_REQUEST),
-    PASSWORDS_DO_NOT_MATCH(4110,"Sifreler uyusmuyor...",HttpStatus.BAD_REQUEST),
-    USERNAME_DUPLICATE(4111,"Böyle bir kullanici adi sistemde mevcut...", HttpStatus.BAD_REQUEST),
-    USER_NOT_FOUND(4112,"Böyle bir kullanici bulunamadi...",HttpStatus.BAD_REQUEST),
-    PASSWORD_INCORRECT(4113,"Sifre hatali...",HttpStatus.BAD_REQUEST),
-    USER_NOT_CREATED(4118,"Kullanici profili olusturulamadi...",HttpStatus.BAD_REQUEST);
+    VEHICLE_NOT_FOUND(4111,"Araç bulunamadı...",HttpStatus.BAD_REQUEST),
+    NO_AVAILABLE_VEHICLES_FOUND(4112,"Yakınlarda araç bulunamadı...",HttpStatus.BAD_REQUEST);
 
 
 

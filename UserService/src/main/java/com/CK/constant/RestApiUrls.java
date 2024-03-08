@@ -13,4 +13,6 @@ public class RestApiUrls {
 
     public static final String CREATE_USER = "/createUser";
     public static final String UPDATE_USER = "/updateUser";
+    public static final String RENT_CAR = "/rentCar";
+    public static final String FIND_NEARBY_VEHICLE = "/findNearbyVehicle";
 }

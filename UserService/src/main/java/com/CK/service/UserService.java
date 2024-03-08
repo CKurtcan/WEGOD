@@ -1,14 +1,19 @@
 package com.CK.service;
 
 import com.CK.dto.request.CreateUserRequestDto;
+import com.CK.dto.request.RentCarRequestDto;
 import com.CK.dto.request.UpdateRequestDto;
+import com.CK.dto.response.VehicleResponseDto;
 import com.CK.entity.UserProfile;
 import com.CK.exception.ErrorType;
 import com.CK.exception.UserManagerException;
+import com.CK.manager.VehicleManager;
 import com.CK.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,6 +21,7 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final VehicleManager vehicleManager;
     public Boolean createUser(CreateUserRequestDto dto) {
         UserProfile user = UserProfile.builder()
                 .authId(dto.getAuthId())
@@ -42,7 +48,16 @@ public class UserService {
         return user;
     }
 
-//    public Boolean rentCar(RentCarRequestDto dto) {
-//        Optional<Vehicle> optionalVehicle = vehicleRepository.findById(dto.getVehicleId()); // vehicle servicteki find by methodu gelecek
-//    }
+    public List<VehicleResponseDto> findNearbyVehicle(String location) {
+        List<VehicleResponseDto> vehicles = new ArrayList<>();
+        vehicles = vehicleManager.findNearbyVehicle(location).getBody();
+        return vehicles;
+    }
+
+    public Boolean rentCar(RentCarRequestDto dto) {
+       // vehicleManager.rentCar(dto.getUsername(), dto.getCarId()); // rent car methodu aracın durmunu değiştirecek
+        return true;
+    }
+
+
 }

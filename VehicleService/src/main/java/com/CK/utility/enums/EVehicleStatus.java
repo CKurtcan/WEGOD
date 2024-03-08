@@ -1,7 +1,7 @@
 package com.CK.utility.enums;
 
 public enum EVehicleStatus {
-    FREE,
+    AVAILABLE,
     BOOKED,
     RENTED
 }

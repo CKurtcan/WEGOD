@@ -1,12 +1,16 @@
 package com.CK.controller;
 
 import com.CK.dto.request.CreateUserRequestDto;
+import com.CK.dto.request.RentCarRequestDto;
 import com.CK.dto.request.UpdateRequestDto;
+import com.CK.dto.response.VehicleResponseDto;
 import com.CK.entity.UserProfile;
 import com.CK.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import static com.CK.constant.RestApiUrls.*;
 
@@ -27,8 +31,13 @@ public class UserController {
         return ResponseEntity.ok(userService.updateUser(dto));
     }
 
-//    @PostMapping(RENT_CAR)
-//    public ResponseEntity<Boolean> rentCar(RentCarRequestDto dto){
-//        return ResponseEntity.ok(userService.rentCar(dto));
-//    }
+    @GetMapping(FIND_NEARBY_VEHICLE)
+    public ResponseEntity<List<VehicleResponseDto>> findNearbyVehicle(@RequestParam String location){
+        return ResponseEntity.ok(userService.findNearbyVehicle(location));
+    }
+
+    @PostMapping(RENT_CAR)
+    public ResponseEntity<Boolean> rentCar(RentCarRequestDto dto){
+        return ResponseEntity.ok(userService.rentCar(dto));
+    }
 }
